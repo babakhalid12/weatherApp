@@ -1,0 +1,44 @@
+<!-- 
+  CHALLENGE
+    - display cityName in format "city name, country name"
+    - define for loop to loop through weather of different days
+    - display the weather for total 4 days (including today) 
+      var 'i' in class="cityData" can be used to store index of the cityDetails.weather array
+    - date should be formatted (eg: 2018-08-03 should be displayed as 'Aug 3, 2018' )
+    - temperature should have 
+      - minimum 2 digits to the left of decimal
+      - exactly 1 digit to the right of decimal
+  -->
+  <div class="container" *ngIf="cityDetails">
+
+    <p class="cityName">{{ cityDetails.city }}, {{ cityDetails.country }}</p>
+    <div>
+    <div *ngFor="let days of cityDetails.weather; let i=index">
+  
+      <mat-card class="cityData" *ngIf="i<4">
+        <h3 class="date"> {{days.date | date}} </h3>
+        <mat-card>
+          <img [src]="days.weather_image" class="weatherIcon">
+          <span class="weather">{{days.weather_name}} </span>
+          <br>
+          <span class="cityTemp">{{days.temperature |  number : '2.0-1'}} °C </span>
+        </mat-card>
+      </mat-card>
+  
+    </div>
+    </div>
+  </div>
+
+  <section class="text-center p-4">
+  
+  
+    <div class="row">
+       
+        <div class="col-md-5">
+                <img src="../../../assets/khalid.jpg" alt="" class="img-fluid rounded-circle mb-2">
+                <h4>Created by Babakhalid Patel</h4>
+                <small class="text-muted">DEVELOPER</small>
+        </div>
+       
+    </div>
+  </section>
